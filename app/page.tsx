@@ -42,7 +42,7 @@ export default function HomePage() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
             <span className="text-sm font-mono uppercase tracking-[0.2em] text-slate-300">
-              Sanjay Research OS
+              Akhik Research OS
             </span>
           </div>
           <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
@@ -77,7 +77,7 @@ export default function HomePage() {
               Data Science · ML · LLMs · Geospatial AI
             </p>
             <h1 className="mb-4 max-w-xl text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-              Hi, I’m <span className="text-emerald-300">Sanjay</span>.  
+              Hi, I’m <span className="text-emerald-300">Akhil</span>.  
               I build intelligent systems that connect{" "}
               <span className="bg-gradient-to-r from-indigo-300 to-emerald-300 bg-clip-text text-transparent">
                 data, models, and the real world.
@@ -167,11 +167,11 @@ export default function HomePage() {
         <footer className="border-t border-slate-800 px-6 py-4 text-[11px] text-slate-400 md:px-12">
           <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
             <span>
-              © {new Date().getFullYear()} Sanjay Varatharajan · Built with Next.js & love for data.
+              © {new Date().getFullYear()} Akhil Kanukula
             </span>
             <div className="flex gap-4">
               <a
-                href="https://github.com/Sanjay3207"
+                href="https://github.com/akhil1729"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-emerald-300"
@@ -179,7 +179,7 @@ export default function HomePage() {
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/sanjayv3207"
+                href="https://www.linkedin.com/in/akhil1729"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-emerald-300"
