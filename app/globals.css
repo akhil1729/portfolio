@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global body styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-black text-slate-100 antialiased;
+}
+
+/* Space gradient background */
+.space-bg {
+  background: radial-gradient(circle at top, rgba(96, 165, 250, 0.25), transparent 55%),
+              radial-gradient(circle at bottom, rgba(129, 140, 248, 0.18), transparent 60%),
+              #020617;
+}
+
+/* Starfield effect using multiple box-shadows */
+.stars {
+  position: fixed;
+  top: -200px;
+  left: -200px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow:
+    100px 200px #fff,
+    500px 700px #fff,
+    900px 1200px #e5e7eb,
+    1300px 400px #facc15,
+    1600px 900px #bae6fd,
+    400px 1300px #bfdbfe;
+  opacity: 0.7;
+  z-index: -10;
+}
+
+/* Soft glassmorphism card */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  backdrop-filter: blur(18px);
+}
+
+/* Scrollbar styling (optional) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 999px;
+}
