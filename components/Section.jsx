@@ -1,7 +1,8 @@
 // components/Section.jsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import anime from "animejs/lib/anime.es.js";
 
 export default function Section({
   id,
@@ -11,7 +12,6 @@ export default function Section({
   align = "left",
 }) {
   const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -21,7 +21,15 @@ export default function Section({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisible(true);
+            // Animate all elements with .section-anim inside this section
+            anime({
+              targets: el.querySelectorAll(".section-anim"),
+              translateY: [30, 0],
+              opacity: [0, 1],
+              delay: anime.stagger(80),
+              duration: 800,
+              easing: "easeOutQuad",
+            });
             observer.disconnect();
           }
         });
@@ -40,20 +48,13 @@ export default function Section({
       ? "items-end text-right"
       : "items-start text-left";
 
-  const baseAnim =
-    "transition-all duration-700 ease-out transform will-change-transform";
-
-  const stateClass = visible
-    ? "opacity-100 translate-y-0"
-    : "opacity-0 translate-y-6";
-
   return (
     <section
       id={id}
       ref={ref}
       className="relative mx-auto mb-20 max-w-6xl px-4 pt-24 md:pt-32"
     >
-      <div className={`${baseAnim} ${stateClass} flex flex-col gap-2 ${alignClass}`}>
+      <div className={`section-anim flex flex-col gap-2 ${alignClass}`}>
         {eyebrow && (
           <div className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300/80">
             {eyebrow}
@@ -65,10 +66,7 @@ export default function Section({
           </h2>
         )}
       </div>
-
-      <div className={`${baseAnim} ${stateClass} mt-8`}>
-        {children}
-      </div>
+      <div className="section-anim mt-8">{children}</div>
     </section>
   );
 }

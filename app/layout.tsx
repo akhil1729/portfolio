@@ -1,12 +1,18 @@
-// app/layout.js
+// app/layout.tsx
 import "./globals.css";
+import type { ReactNode } from "react";
 
 export const metadata = {
   title: "Akhil Kanukula | Space Portfolio",
-  description: "Space-themed portfolio of Akhil Kanukula: Data Science, NASA research, LLMs, and diffusion models.",
+  description:
+    "Space-themed portfolio of Akhil Kanukula: Data Science, NASA research, LLMs, and diffusion models.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
       <body className="space-bg relative min-h-screen">
