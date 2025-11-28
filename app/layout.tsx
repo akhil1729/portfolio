@@ -1,4 +1,5 @@
 // app/layout.tsx
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
 import type { ReactNode } from "react";
 

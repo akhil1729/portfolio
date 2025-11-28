@@ -3,6 +3,7 @@
 import NavBar from "@/components/NavBar";
 import Section from "@/components/Section";
 import ParallaxCard from "@/components/ParallaxCard";
+import Skills from "@/components/Skills"
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
       {/* About / Mission Briefing */}
       <AboutSection />
 
+      {/* Skills / System Scan */}
+      <Skills />
+
       {/* Experience / Flight Log */}
       <ExperienceSection />
 
@@ -26,6 +30,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 // ---------------- HERO SECTION ----------------
 

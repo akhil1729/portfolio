@@ -7,10 +7,12 @@ import anime from "animejs/lib/anime.es.js";
 const sections = [
   { id: "hero", label: "Launch Pad" },
   { id: "about", label: "Mission Briefing" },
+  { id: "skills", label: "System Scan" },      // 🔥 new
   { id: "experience", label: "Flight Log" },
   { id: "projects", label: "Research Lab" },
   { id: "contact", label: "Comm Channel" },
 ];
+
 
 export default function NavBar() {
   const [active, setActive] = useState("hero");
