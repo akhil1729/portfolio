@@ -2,28 +2,21 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
 import type { ReactNode } from "react";
+import SmoothScroll from "@/components/SmoothScroll"; // <--- IMPORT THIS
 
 export const metadata = {
   title: "Akhil Kanukula | Space Portfolio",
-  description:
-    "Space-themed portfolio of Akhil Kanukula: Data Science, NASA research, LLMs, and diffusion models.",
+  description: "Space-themed portfolio...",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="space-bg relative min-h-screen">
-        {/* Static starfield */}
-        <div className="stars" />
-
-        {/* Subtle vignette overlay */}
-        <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0.4),_transparent_60%)] mix-blend-screen opacity-70" />
-
-        {children}
+      <body className="bg-black relative min-h-screen antialiased">
+        <SmoothScroll>
+           {/* We removed the old CSS 'stars' div here because we will use 3D stars instead */}
+           {children}
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -3,11 +3,17 @@
 import NavBar from "@/components/NavBar";
 import Section from "@/components/Section";
 import ParallaxCard from "@/components/ParallaxCard";
-import Skills from "@/components/Skills"
+import Skills from "@/components/Skills";
+import { motion } from "framer-motion";
+import SpaceBackground from "@/components/SpaceBackground"; // <--- Import New 3D Scene
 
 export default function Home() {
   return (
     <main className="relative min-h-screen pb-20">
+      
+      {/* 1. Add the 3D Background here. It is 'fixed' so it stays visible while scrolling */}
+      <SpaceBackground /> 
+
       <NavBar />
 
       {/* Hero / Launch Pad */}
@@ -31,6 +37,9 @@ export default function Home() {
   );
 }
 
+// ... Keep your existing HeroSection, AboutSection, etc. code below ...
+// Important: In HeroSection, REMOVE <ParallaxOrbs /> since SpaceBackground covers it.
+
 
 // ---------------- HERO SECTION ----------------
 
@@ -40,16 +49,48 @@ function HeroSection() {
       id="hero"
       className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-4 pt-24 md:flex-row md:items-center"
     >
-      <div className="section-anim flex-1 space-y-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300">
+
+      {/* Left: Kinetic heading + CTAs */}
+      <div className="section-anim relative z-10 flex-1 space-y-6">
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300"
+        >
           Mission: Data, Space &amp; Intelligent Systems
-        </p>
+        </motion.p>
 
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-50 md:text-6xl">
-          Akhil Kanukula
-        </h1>
+        {/* Split title for kinetic feel */}
+        <div className="space-y-1">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl font-semibold tracking-tight text-slate-50 md:text-6xl"
+          >
+            Akhil{" "}
+            <span className="bg-gradient-to-r from-indigo-400 via-sky-400 to-fuchsia-400 bg-clip-text text-transparent">
+              Kanukula
+            </span>
+          </motion.h1>
 
-        <p className="max-w-xl text-sm text-slate-300 md:text-base">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="text-sm uppercase tracking-[0.25em] text-slate-400"
+          >
+            Data Science ▪ ML Systems ▪ Space &amp; Climate
+          </motion.p>
+        </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
+          className="max-w-xl text-sm text-slate-300 md:text-base"
+        >
           Data Analyst, Graduate Research Assistant, and Full-Stack Web
           Developer crafting{" "}
           <span className="text-indigo-300">
@@ -57,25 +98,35 @@ function HeroSection() {
           </span>
           . From NASA-affiliated climate prediction research to LLM-driven user
           study platforms, my work orbits around turning complex data into
-          actionable insights.
-        </p>
+          cinematic, interactive experiences.
+        </motion.p>
 
-        <div className="flex flex-wrap gap-3">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+          className="flex flex-wrap gap-3"
+        >
           <a
             href="#projects"
-            className="rounded-full bg-indigo-500 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-indigo-500/40 transition hover:bg-indigo-400"
+            className="rounded-full bg-indigo-500 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-indigo-500/40 transition hover:bg-indigo-400 hover:shadow-indigo-400/60"
           >
             View Mission Log
           </a>
           <a
-            href="#contact"
-            className="rounded-full border border-slate-500/60 px-5 py-2 text-sm font-medium text-slate-200 hover:border-indigo-400 hover:text-indigo-300"
+            href="#skills"
+            className="rounded-full border border-slate-500/60 px-5 py-2 text-sm font-medium text-slate-200 hover:border-cyan-400 hover:text-cyan-300"
           >
-            Open Comm Channel
+            System Scan
           </a>
-        </div>
+        </motion.div>
 
-        <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-400">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.25 }}
+          className="mt-4 flex flex-wrap gap-3 text-xs text-slate-400"
+        >
           <span className="rounded-full border border-slate-600/60 px-3 py-1">
             NASA Climate Forecasting
           </span>
@@ -85,48 +136,57 @@ function HeroSection() {
           <span className="rounded-full border border-slate-600/60 px-3 py-1">
             LLM Behavioral Web Apps
           </span>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Floating planet card */}
-      <div className="mt-12 flex-1 md:mt-0 md:pl-10">
-        <ParallaxCard className="h-64 md:h-80">
-          <div className="flex h-full flex-col justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-indigo-300">
-                Current Orbit
-              </p>
-              <p className="mt-2 text-sm font-medium text-slate-100">
-                M.S. Data Science @ UMBC (CGPA 4.0/4.0)
-              </p>
-              <p className="mt-1 text-xs text-slate-300">
-                Graduate Research Assistant on NASA-funded climate projects,
-                designing DDPM-based UNet models for 2m temperature anomalies
-                and ensemble uncertainty.
-              </p>
-            </div>
-            <div className="flex items-end justify-between">
+      {/* Right: holographic “current orbit” card */}
+      <div className="relative z-10 mt-12 flex-1 md:mt-0 md:pl-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
+          {/* reuse ParallaxCard styling via glass-panel to keep things consistent */}
+          <div className="glass-panel relative h-64 overflow-hidden p-6 shadow-xl md:h-80">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.35),_transparent_65%)] opacity-70" />
+            <div className="relative z-10 flex h-full flex-col justify-between">
               <div>
-                <p className="text-xs text-slate-400">Primary Stack</p>
-                <p className="text-sm text-slate-200">
-                  PyTorch · Next.js · FastAPI · PostgreSQL
+                <p className="text-xs uppercase tracking-[0.3em] text-indigo-300">
+                  Current Orbit
+                </p>
+                <p className="mt-2 text-sm font-medium text-slate-100">
+                  M.S. Data Science @ UMBC (CGPA 4.0/4.0)
+                </p>
+                <p className="mt-1 text-xs text-slate-300">
+                  Graduate Research Assistant on NASA-funded climate projects,
+                  designing DDPM-based U-Net models for 2m temperature
+                  anomalies and ensemble uncertainty.
                 </p>
               </div>
-              <div className="text-right">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
-                  Coordinates
-                </p>
-                <p className="text-xs text-slate-200">
-                  Baltimore, MD · Earth
-                </p>
+              <div className="flex items-end justify-between">
+                <div>
+                  <p className="text-xs text-slate-400">Primary Stack</p>
+                  <p className="text-sm text-slate-200">
+                    PyTorch · Next.js · FastAPI · PostgreSQL
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
+                    Coordinates
+                  </p>
+                  <p className="text-xs text-slate-200">
+                    Baltimore, MD · Earth
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </ParallaxCard>
+        </motion.div>
       </div>
     </section>
   );
 }
+
 
 // ---------------- ABOUT SECTION ----------------
 
