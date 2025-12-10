@@ -6,11 +6,11 @@ import anime from "animejs/lib/anime.es.js";
 
 const sections = [
   { id: "hero", label: "Launch Pad" },
-  { id: "about", label: "Mission Briefing" },
-  { id: "skills", label: "System Scan" },      // 🔥 new
-  { id: "experience", label: "Flight Log" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Tech Stack" },      // 🔥 new
+  { id: "experience", label: "Projects" },
   { id: "projects", label: "Research Lab" },
-  { id: "contact", label: "Comm Channel" },
+  { id: "contact", label: "Connect With Me" },
 ];
 
 
@@ -61,7 +61,7 @@ export default function NavBar() {
     <header className="fixed top-4 left-1/2 z-40 -translate-x-1/2">
       <nav className="glass-panel flex items-center gap-4 px-6 py-3 shadow-lg">
         <div className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-300">
-          Akhil ▪ Space Log
+          Akhil Kanukula ▪ Space Log
         </div>
         <div className="hidden gap-2 md:flex">
           {sections.map((s) => (

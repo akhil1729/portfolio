@@ -435,7 +435,7 @@ function ContactSection() {
     >
       <div className="mx-auto max-w-xl space-y-6 text-center">
         <p className="text-sm text-slate-300 md:text-base">
-          Open to internships, research collaborations, and full-stack ML/AI
+          Open to Full-time opportunities, internships, research collaborations, and full-stack ML/AI
           projects—especially those at the intersection of{" "}
           <span className="text-indigo-300">
             climate, satellite imagery, and intelligent systems
