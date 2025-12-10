@@ -61,7 +61,7 @@ export default function NavBar() {
     <header className="fixed top-4 left-1/2 z-40 -translate-x-1/2">
       <nav className="glass-panel flex items-center gap-4 px-6 py-3 shadow-lg">
         <div className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-300">
-          Akhil Kanukula ▪ Space Log
+          Akhil Kanukula
         </div>
         <div className="hidden gap-2 md:flex">
           {sections.map((s) => (
