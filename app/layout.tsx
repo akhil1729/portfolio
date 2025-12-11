@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import SmoothScroll from "@/components/SmoothScroll"; // <--- IMPORT THIS
 
 export const metadata = {
-  title: "Akhil Kanukula | Space Portfolio",
+  title: "Akhil Kanukula",
   description: "Akhil's Portfolio",
 };
 
