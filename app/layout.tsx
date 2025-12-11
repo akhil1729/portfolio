@@ -6,7 +6,7 @@ import SmoothScroll from "@/components/SmoothScroll"; // <--- IMPORT THIS
 
 export const metadata = {
   title: "Akhil Kanukula | Space Portfolio",
-  description: "Space-themed portfolio...",
+  description: "Akhil's Portfolio",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
