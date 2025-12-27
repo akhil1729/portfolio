@@ -10,9 +10,9 @@ import SpaceBackground from "@/components/SpaceBackground"; // <--- Import New 3
 export default function Home() {
   return (
     <main className="relative min-h-screen pb-20">
-      
+
       {/* 1. Add the 3D Background here. It is 'fixed' so it stays visible while scrolling */}
-      <SpaceBackground /> 
+      <SpaceBackground />
 
       <NavBar />
 
@@ -38,8 +38,6 @@ export default function Home() {
 }
 
 // ... Keep your existing HeroSection, AboutSection, etc. code below ...
-// Important: In HeroSection, REMOVE <ParallaxOrbs /> since SpaceBackground covers it.
-
 
 // ---------------- HERO SECTION ----------------
 
