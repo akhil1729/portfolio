@@ -258,9 +258,17 @@ type Role = {
 function ExperienceSection() {
   const roles: Role[] = [
     {
+      company: "Platinum Business Services",
+      title: "Data AI Engineer Intern",
+      timeline: "Feb 2026 – Present",
+      description:
+        "Design and develop use cases and MVPs for R&D AI applications in Health Care, Cybersecurity, and Quantum Computing, with a focus on Artificial Intelligence in Animal Testing Research.",
+      tags: ["Research and Development", "Python", "ML", "Data Engineering"],
+    },
+    {
       company: "Health Tech Alley",
       title: "Data Analyst",
-      timeline: "Sept 2025 – Present",
+      timeline: "Sept 2025 – Jan 2026",
       description:
         "Building childcare demand/supply datasets, relational schemas, and Power BI dashboards to reveal shortages at the census block level.",
       tags: ["Data Engineering", "SQL", "Power BI", "Spatial Analysis"],
@@ -276,7 +284,7 @@ function ExperienceSection() {
     {
       company: "Cyber Pack Ventures Inc.",
       title: "Software Developer Intern",
-      timeline: "Jan 2025 – Present",
+      timeline: "Jan 2025 – December 2025",
       description:
         "Built an LLM behavioral study platform with three fixed AI personalities, hallucination logic, and full-stack logging on Next.js + FastAPI + PostgreSQL.",
       tags: ["Next.js", "FastAPI", "PostgreSQL", "LLM Systems"],
@@ -343,6 +351,15 @@ type Project = {
 
 function ProjectsSection() {
   const projects: Project[] = [
+    {
+      name: "Geospatial Machine Learning Platform for Wildfire Risk Assessment and Crop Health Monitoring",
+      subtitle:
+        "Unified Wildfire & Crop Monitoring Platform",
+      description:
+        "Addresses the critical convergence of environmental crises—wildfires and agricultural drought—by harmonizing data from multiple satellite constellations (VIIRS, SMAP, ERA5) and applying Deep Learning. Key capabilities include a U-Net Computer Vision model for wildfire segmentation through smoke using thermal data, and an LSTM Time-Series model for drought forecasting via soil moisture prediction.",
+      tech: ["Next.js", "FastAPI", "PostgreSQL", "ETL", "LSTM", "UNet", "Deep Learning", "Full Stack", "Data Engineering"],
+      link: "https://github.com/akhil1729/Geospatial-Machine-Learning-Platform-for-Wildfire-Risk-and-Crop-Health",
+    },
     {
       name: "Land Cover Simulation via Diffusion Models",
       subtitle:
