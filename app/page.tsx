@@ -481,6 +481,14 @@ function ContactSection() {
           >
             GitHub
           </a>
+          <a
+            href="https://drive.google.com/file/d/1O3CryShMnk1m1FDlIyctgUtZqWwOl9Qv/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-slate-500/60 px-4 py-2 text-sm text-slate-200 hover:border-indigo-400 hover:text-indigo-300"
+          >
+            Resume
+          </a>
         </div>
       </div>
     </Section>
