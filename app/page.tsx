@@ -4,8 +4,9 @@ import NavBar from "@/components/NavBar";
 import Section from "@/components/Section";
 import ParallaxCard from "@/components/ParallaxCard";
 import Skills from "@/components/Skills";
-import { motion } from "framer-motion";
-import SpaceBackground from "@/components/SpaceBackground"; // <--- Import New 3D Scene
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import SpaceBackground from "@/components/SpaceBackground";
 
 export default function Home() {
   return (
@@ -33,6 +34,9 @@ export default function Home() {
 
       {/* Contact / Comm Channel */}
       <ContactSection />
+
+      {/* Scroll-to-top rocket */}
+      <ScrollToTop />
     </main>
   );
 }
@@ -304,36 +308,69 @@ function ExperienceSection() {
       id="experience"
       eyebrow="Flight Log"
       title="Experience Across Orbits"
+      align="center"
     >
-      <div className="grid gap-6 md:grid-cols-2">
-        {roles.map((role) => (
-          <ParallaxCard key={role.company} className="section-anim">
-            <div className="flex items-center justify-between gap-2">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">
-                  {role.company}
-                </p>
-                <p className="mt-1 text-sm font-medium text-slate-100">
-                  {role.title}
-                </p>
-              </div>
-              <p className="text-[11px] text-slate-400">{role.timeline}</p>
-            </div>
-            <p className="mt-3 text-xs text-slate-300 md:text-sm">
-              {role.description}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {role.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-slate-600/80 px-2 py-1 text-[10px] uppercase tracking-[0.1em] text-slate-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </ParallaxCard>
-        ))}
+      {/* Vertical Timeline */}
+      <div className="relative">
+        {/* Centre line */}
+        <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-indigo-500/60 via-purple-500/40 to-transparent md:block" />
+
+        <div className="flex flex-col gap-10">
+          {roles.map((role, idx) => {
+            const isLeft = idx % 2 === 0;
+            return (
+              <motion.div
+                key={role.company}
+                initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className={`relative flex flex-col md:flex-row ${isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                  } md:gap-12`}
+              >
+                {/* Card side */}
+                <div className="w-full md:w-[calc(50%-1.5rem)]">
+                  <ParallaxCard>
+                    <div className="flex items-center justify-between gap-2">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">
+                          {role.company}
+                        </p>
+                        <p className="mt-1 text-sm font-medium text-slate-100">
+                          {role.title}
+                        </p>
+                      </div>
+                      <p className="whitespace-nowrap text-[11px] text-slate-400">
+                        {role.timeline}
+                      </p>
+                    </div>
+                    <p className="mt-3 text-xs text-slate-300 md:text-sm">
+                      {role.description}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {role.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-slate-600/80 px-2 py-1 text-[10px] uppercase tracking-[0.1em] text-slate-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </ParallaxCard>
+                </div>
+
+                {/* Timeline dot */}
+                <div className="absolute left-1/2 top-6 hidden -translate-x-1/2 md:flex">
+                  <span className="h-3.5 w-3.5 rounded-full border-2 border-indigo-400 bg-black shadow-[0_0_8px_rgba(129,140,248,0.6)]" />
+                </div>
+
+                {/* Empty spacer for the other side */}
+                <div className="hidden w-[calc(50%-1.5rem)] md:block" />
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </Section>
   );
@@ -393,7 +430,7 @@ function ProjectsSection() {
       title="Highlighted Missions"
       align="left"
     >
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <ParallaxCard
             key={project.name}
@@ -492,5 +529,39 @@ function ContactSection() {
         </div>
       </div>
     </Section>
+  );
+}
+
+// ---------------- SCROLL TO TOP ----------------
+
+function ScrollToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollUp = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.button
+          key="scroll-top"
+          onClick={scrollUp}
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.6 }}
+          whileHover={{ scale: 1.15, boxShadow: "0 0 24px rgba(129,140,248,0.5)" }}
+          className="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-indigo-400/50 bg-black/70 text-lg text-indigo-300 shadow-lg shadow-indigo-500/30 backdrop-blur-md transition-colors hover:border-indigo-300 hover:text-white"
+          aria-label="Scroll to top"
+        >
+          🚀
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
