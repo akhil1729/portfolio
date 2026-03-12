@@ -12,10 +12,17 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body className="bg-black relative min-h-screen antialiased">
         <SmoothScroll>
-           {/* We removed the old CSS 'stars' div here because we will use 3D stars instead */}
-           {children}
+          {/* We removed the old CSS 'stars' div here because we will use 3D stars instead */}
+          {children}
         </SmoothScroll>
       </body>
     </html>
