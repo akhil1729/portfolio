@@ -495,36 +495,56 @@ function ContactSection() {
           .
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3 text-xs">
+        <div className="flex flex-wrap justify-center gap-6">
           <a
             href="mailto:akhilk1@umbc.edu"
-            className="rounded-full bg-indigo-500 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-indigo-500/40 hover:bg-indigo-400"
+            className="group flex flex-col items-center gap-2"
           >
-            Email Me
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-500 text-xl text-white shadow-lg shadow-indigo-500/40 transition-all duration-300 group-hover:scale-110 group-hover:bg-indigo-400 group-hover:shadow-indigo-400/60">
+              <i className="bi bi-envelope-fill" />
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-slate-400 transition-colors group-hover:text-indigo-300">
+              Email
+            </span>
           </a>
           <a
             href="https://www.linkedin.com/in/akhil1729"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-slate-500/60 px-4 py-2 text-sm text-slate-200 hover:border-indigo-400 hover:text-indigo-300"
+            className="group flex flex-col items-center gap-2"
           >
-            LinkedIn
+            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-500/60 text-xl text-slate-200 transition-all duration-300 group-hover:scale-110 group-hover:border-indigo-400 group-hover:text-indigo-300 group-hover:shadow-[0_0_16px_rgba(129,140,248,0.35)]">
+              <i className="bi bi-linkedin" />
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-slate-400 transition-colors group-hover:text-indigo-300">
+              LinkedIn
+            </span>
           </a>
           <a
             href="https://github.com/akhil1729"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-slate-500/60 px-4 py-2 text-sm text-slate-200 hover:border-indigo-400 hover:text-indigo-300"
+            className="group flex flex-col items-center gap-2"
           >
-            GitHub
+            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-500/60 text-xl text-slate-200 transition-all duration-300 group-hover:scale-110 group-hover:border-indigo-400 group-hover:text-indigo-300 group-hover:shadow-[0_0_16px_rgba(129,140,248,0.35)]">
+              <i className="bi bi-github" />
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-slate-400 transition-colors group-hover:text-indigo-300">
+              GitHub
+            </span>
           </a>
           <a
             href="https://drive.google.com/file/d/1O3CryShMnk1m1FDlIyctgUtZqWwOl9Qv/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-slate-500/60 px-4 py-2 text-sm text-slate-200 hover:border-indigo-400 hover:text-indigo-300"
+            className="group flex flex-col items-center gap-2"
           >
-            Resume
+            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-500/60 text-xl text-slate-200 transition-all duration-300 group-hover:scale-110 group-hover:border-indigo-400 group-hover:text-indigo-300 group-hover:shadow-[0_0_16px_rgba(129,140,248,0.35)]">
+              <i className="bi bi-file-earmark-person-fill" />
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.15em] text-slate-400 transition-colors group-hover:text-indigo-300">
+              Resume
+            </span>
           </a>
         </div>
       </div>
