@@ -8,6 +8,7 @@ html, body {
 
 body {
   @apply bg-black text-slate-100 antialiased;
+  overflow-x: hidden;
 }
 
 /* DELETE the .stars class and .space-bg class if you are fully switching to 3D. 

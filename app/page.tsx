@@ -10,7 +10,7 @@ import SpaceBackground from "@/components/SpaceBackground";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen pb-20">
+    <main className="relative min-h-screen overflow-x-hidden pb-20">
 
       {/* 1. Add the 3D Background here. It is 'fixed' so it stays visible while scrolling */}
       <SpaceBackground />

@@ -98,18 +98,18 @@ const categories: SkillCategory[] = [
 
 function SkillChip({ skill }: { skill: Skill }) {
   return (
-    <div className="group flex-shrink-0 flex items-center gap-2.5 rounded-xl border border-purple-500/40 bg-[#0f051d]/80 px-4 py-3 shadow-[0_0_14px_rgba(112,66,248,0.3)] transition-all duration-300 hover:scale-105 hover:border-cyan-400/60 hover:bg-purple-900/20 hover:shadow-[0_0_20px_rgba(34,211,238,0.3)] cursor-default">
+    <div className="group flex-shrink-0 flex items-center gap-1.5 rounded-lg border border-purple-500/40 bg-[#0f051d]/80 px-2.5 py-2 shadow-[0_0_14px_rgba(112,66,248,0.3)] transition-all duration-300 hover:scale-105 hover:border-cyan-400/60 hover:bg-purple-900/20 hover:shadow-[0_0_20px_rgba(34,211,238,0.3)] cursor-default md:gap-2.5 md:rounded-xl md:px-4 md:py-3">
       {skill.icon ? (
         <i
-          className={`${skill.icon} text-2xl text-purple-400 transition-colors duration-300 group-hover:text-cyan-400`}
+          className={`${skill.icon} text-lg text-purple-400 transition-colors duration-300 group-hover:text-cyan-400 md:text-2xl`}
         />
       ) : (
         /* Text-initial fallback for skills without a Devicon icon */
-        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-purple-500/20 text-xs font-bold text-purple-300 transition-colors duration-300 group-hover:bg-cyan-500/20 group-hover:text-cyan-300">
+        <span className="flex h-5 w-5 items-center justify-center rounded-md bg-purple-500/20 text-[10px] font-bold text-purple-300 transition-colors duration-300 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 md:h-7 md:w-7 md:text-xs">
           {skill.name.slice(0, 2)}
         </span>
       )}
-      <span className="whitespace-nowrap text-sm font-medium text-gray-200">
+      <span className="whitespace-nowrap text-xs font-medium text-gray-200 md:text-sm">
         {skill.name}
       </span>
     </div>
@@ -172,7 +172,7 @@ const Skills = () => {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300/80">
           System Scan
         </p>
-        <h1 className="bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-[40px] font-semibold text-transparent md:text-[46px]">
+        <h1 className="bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-[28px] font-semibold text-transparent md:text-[46px]">
           Main Tech Stack
         </h1>
         <p className="text-sm text-gray-400 md:text-base">
@@ -181,7 +181,7 @@ const Skills = () => {
       </motion.div>
 
       {/* Category rows */}
-      <div className="w-full space-y-8">
+      <div className="w-full space-y-5 md:space-y-8">
         {categories.map((cat, idx) => (
           <motion.div
             key={cat.label}

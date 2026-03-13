@@ -7,18 +7,17 @@ import anime from "animejs/lib/anime.es.js";
 const sections = [
   { id: "hero", label: "Launch Pad" },
   { id: "about", label: "About" },
-  { id: "skills", label: "Tech Stack" },      // 🔥 new
+  { id: "skills", label: "Tech Stack" },
   { id: "experience", label: "Projects" },
   { id: "projects", label: "Research Lab" },
   { id: "contact", label: "Connect With Me" },
 ];
 
-
 export default function NavBar() {
   const [active, setActive] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Anime.js staggered drop-in for nav pills
     anime({
       targets: ".nav-orbit-item",
       translateY: [-20, 0],
@@ -55,14 +54,17 @@ export default function NavBar() {
       top: window.scrollY + el.getBoundingClientRect().top - 80,
       behavior: "smooth",
     });
+    setMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-4 left-1/2 z-40 -translate-x-1/2">
-      <nav className="glass-panel flex items-center gap-4 px-6 py-3 shadow-lg">
+    <header className="fixed top-4 left-1/2 z-40 -translate-x-1/2 w-[calc(100%-2rem)] max-w-fit">
+      <nav className="glass-panel flex items-center gap-4 px-4 py-3 shadow-lg md:px-6">
         <div className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-300">
           Akhil Kanukula
         </div>
+
+        {/* Desktop nav */}
         <div className="hidden gap-2 md:flex">
           {sections.map((s) => (
             <button
@@ -79,7 +81,50 @@ export default function NavBar() {
             </button>
           ))}
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="ml-auto flex flex-col gap-[5px] md:hidden"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`block h-[2px] w-5 bg-slate-300 transition-all duration-300 ${
+              menuOpen ? "translate-y-[7px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-[2px] w-5 bg-slate-300 transition-all duration-300 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-[2px] w-5 bg-slate-300 transition-all duration-300 ${
+              menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+            }`}
+          />
+        </button>
       </nav>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="glass-panel mt-2 flex flex-col gap-1 p-3 shadow-lg md:hidden">
+          {sections.map((s) => (
+            <button
+              key={s.id}
+              onClick={() => scrollToSection(s.id)}
+              className={`rounded-lg px-4 py-2.5 text-left text-sm font-medium transition
+                ${
+                  active === s.id
+                    ? "bg-indigo-500/80 text-white shadow-md shadow-indigo-500/40"
+                    : "text-slate-300 hover:bg-slate-800/60"
+                }`}
+            >
+              {s.label}
+            </button>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
